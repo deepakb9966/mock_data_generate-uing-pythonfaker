@@ -1,0 +1,33 @@
+{
+  "context": {
+    "locale": "en-US"
+  },
+  "paths": [
+    {
+      "path": "$",
+      "generator": "collection",
+      "params": {
+        "sample_file": "pulse.json",
+        "count": 2,
+        "patientId": "FVNTu8vnH9QMLDH24CPGn7mm2In2",
+        "paths": [
+          {
+            "path": "$.valueQuantity.value",
+            "generator": "number",
+            "params": {
+              "min": 60,
+              "max": 120
+            }
+          },
+          {
+            "path": "$.effectiveDateTime",
+            "generator": "date_time",
+            "params": {
+              "from_date": "-1y"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

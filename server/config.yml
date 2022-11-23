@@ -1,0 +1,36 @@
+logging: 
+    version: 1
+    disable_existing_loggers: False
+
+    formatters:
+        simple:
+            format: "%(name)s - %(levelname)s - %(lineno)d -  %(message)s"
+    
+        complex:
+            format: "%(asctime)s - %(name)s - %(levelname)s - %(lineno)d -  %(message)s"
+
+    handlers:
+        console:
+            class: logging.StreamHandler
+            level: ERROR
+            formatter: simple
+    
+        file:
+            class: logging.handlers.TimedRotatingFileHandler
+            when: midnight
+            backupCount: 5
+            level: DEBUG
+            formatter: complex
+            filename : ../log/mock_data_generator.log
+
+    root:
+        level: DEBUG
+        handlers: [console,file]
+        propagate: yes
+
+context:
+    persistent_keys:
+        - persistent_keys
+        - input_dir
+        - locale
+        - fake

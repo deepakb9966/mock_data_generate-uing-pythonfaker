@@ -1,0 +1,41 @@
+{
+  "context": {
+    "locale": "en-US"
+  },
+  "paths": [
+    {
+      "path": "$",
+      "generator": "collection",
+      "params": {
+        "sample_file": "bp.json",
+        "count": 10,
+        "patientId": "FVNTu8vnH9QMLDH24CPGn7mm2In2",
+        "paths": [
+          {
+            "path": "$.sys",
+            "generator": "number",
+            "params": {
+              "min": 10,
+              "max": 130
+            }
+          },
+          {
+            "path": "$.dia",
+            "generator": "number",
+            "params": {
+              "min": 70,
+              "max": 90
+            }
+          },
+          {
+            "path": "$.createdAt",
+            "generator": "date_time",
+            "params": {
+              "from_date": "-1y"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

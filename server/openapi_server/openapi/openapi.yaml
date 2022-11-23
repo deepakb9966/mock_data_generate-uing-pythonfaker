@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  description: mockdata Service
+  title: mockdata OpenAPI
+  version: 0.0.1
+servers:
+- description: Local Dev Server
+  url: http://localhost:8080/
+paths:
+  /Mockdata/create:
+    post:
+      operationId: mockdata_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_Mockdata_create_post_request'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_Mockdata_create_post_201_response'
+          description: Success
+      tags:
+      - Mockdata
+      x-openapi-router-controller: openapi_server.controllers.mockdata_controller
+  /Mockdata/get:
+    get:
+      operationId: mockdata_get_get
+      parameters:
+      - explode: true
+        in: query
+        name: vital_type
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_Mockdata_create_post_201_response'
+          description: Success
+      tags:
+      - Mockdata
+      x-openapi-router-controller: openapi_server.controllers.mockdata_controller
+components:
+  parameters:
+    idParam:
+      explode: true
+      in: query
+      name: vital_type
+      required: true
+      schema:
+        type: string
+      style: form
+  schemas:
+    MessageDto:
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
+    _Mockdata_create_post_request:
+      properties:
+        vital_type:
+          title: vital_type
+          type: string
+        count:
+          title: count
+          type: integer
+      title: _Mockdata_create_post_request
+      type: object
+    _Mockdata_create_post_201_response:
+      example:
+        message: message
+      properties:
+        message:
+          title: message
+          type: string
+      title: _Mockdata_create_post_201_response
+      type: object

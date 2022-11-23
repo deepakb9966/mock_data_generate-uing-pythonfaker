@@ -1,0 +1,33 @@
+{
+    "context": {
+        "locale": "en-US"
+    },
+    "paths": [
+        {
+            "path": "$",
+            "generator": "collection",
+            "params": {
+                "sample_file": "temp.json",
+                "count": 50,
+                "patientId": "FVNTu8vnH9QMLDH24CPGn7mm2In2",
+                "paths": [
+                    {
+                        "path": "$.temp",
+                        "generator": "float",
+                        "params": {
+                            "min": 95,
+                            "max": 105
+                        }
+                    },
+                    {
+                        "path": "$.createdAt",
+                        "generator": "date_time",
+                        "params": {
+                            "from_date": "-1y"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

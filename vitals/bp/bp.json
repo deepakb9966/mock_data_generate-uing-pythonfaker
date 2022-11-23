@@ -1,0 +1,7 @@
+{
+  "sys": "string",
+  "dia": "string",
+  "deviceId": null,
+  "isManual": true,
+  "createdAt": "string"
+}
