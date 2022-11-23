@@ -31,6 +31,12 @@ paths:
                 properties:
                   message:
                     type: string
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "404":
+          $ref: "#/components/responses/ResourceNotFoundError"
+        "422":
+          $ref: "#/components/responses/UnAcceptableInputs"
   /Mockdata/get:
     get:
       tags:
@@ -38,7 +44,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/idParam"
       responses:
-        "201":
+        "200":
           description: Success
           content:
             application/json:
@@ -47,7 +53,36 @@ paths:
                 properties:
                   message:
                     type: string
+        "401":
+            $ref: "#/components/responses/UnauthorizedError"
+        "404":
+            $ref: "#/components/responses/ResourceNotFoundError"
+        "422":
+            $ref: "#/components/responses/UnAcceptableInputs"
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  responses:
+    ResourceNotFoundError:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MessageDto"
+    UnauthorizedError:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MessageDto"
+    UnAcceptableInputs:
+      description: Invalid Inputs
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MessageDto"
   parameters:
     idParam:
       name: vital_type

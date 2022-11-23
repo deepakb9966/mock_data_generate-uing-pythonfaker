@@ -8,20 +8,20 @@ def run_command(self):
                 "python3 main.py -i ../vitals/temp -r ../vitals/temp/temp_rules.json -o ../vitals/temp/temp_mock.json")):
             return {401: "failed"}
         else:
-            return {200: "temperature data generated successfully"}
+            return {201: "temperature data generated successfully"}
 
     elif self == "bp":
         if (os.system(
                 "python3 main.py -i ../vitals/bp -r ../vitals/bp/bp_rules.json -o ../vitals/bp/bp_mock.json")):
             return {401: "failed"}
         else:
-            return {200: "bp data generated successfully"}
+            return {201: "bp data generated successfully"}
     elif self == "pulse":
         if (os.system(
                 "python3 main.py -i ../vitals/pulse -r ../vitals/pulse/pulse_rules.json -o ../vitals/pulse/pulse_mock.json")):
             return {401: "failed"}
         else:
-            return {200: "pulse data generated successfully"}
+            return {201: "pulse data generated successfully"}
     else:
         return {401: "not Found"}
 

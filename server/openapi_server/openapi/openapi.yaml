@@ -22,6 +22,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/_Mockdata_create_post_201_response'
           description: Success
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: The specified resource was not found
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: Invalid Inputs
       tags:
       - Mockdata
       x-openapi-router-controller: openapi_server.controllers.mockdata_controller
@@ -37,12 +55,30 @@ paths:
           type: string
         style: form
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/_Mockdata_create_post_201_response'
           description: Success
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: The specified resource was not found
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+          description: Invalid Inputs
       tags:
       - Mockdata
       x-openapi-router-controller: openapi_server.controllers.mockdata_controller
@@ -56,13 +92,34 @@ components:
       schema:
         type: string
       style: form
+  responses:
+    ResourceNotFoundError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MessageDto'
+      description: The specified resource was not found
+    UnauthorizedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MessageDto'
+      description: Unauthorized
+    UnAcceptableInputs:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MessageDto'
+      description: Invalid Inputs
   schemas:
     MessageDto:
       properties:
         message:
+          title: message
           type: string
       required:
       - message
+      title: MessageDto
       type: object
     _Mockdata_create_post_request:
       properties:
@@ -83,3 +140,8 @@ components:
           type: string
       title: _Mockdata_create_post_201_response
       type: object
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      type: http
+      x-bearerInfoFunc: openapi_server.controllers.security_controller_.info_from_bearerAuth
