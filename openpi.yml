@@ -19,8 +19,6 @@ paths:
               properties:
                 vital_type:
                   type: string
-                count:
-                  type: integer
       responses:
         "201":
           description: Success

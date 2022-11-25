@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 def generate(ctx, params, doc, target):
     sample_fname = '{}/{}'.format(ctx['input_dir'], params['sample_file'])
     # count = params['count']
-    count = 50
+    count = 1
     print("collection", count)
     patient_id = params['patientId'] if ('patientId' in params) else ''
     logger.debug("params: " + str(params))
