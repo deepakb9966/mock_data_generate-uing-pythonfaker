@@ -1,8 +1,8 @@
 import json
 
-bp_data = open('/home/deep/Desktop/mock_data_generator-main/vitals/bp/bp_mock.json')
-pulse_data = open('/home/deep/Desktop/mock_data_generator-main/vitals/pulse/pulse_mock.json')
-temp_data = open('/home/deep/Desktop/mock_data_generator-main/vitals/temp/temp_mock.json')
+bp_data = open('/workspaces/mock_data_generate-uing-pythonfaker/vitals/bp/bp_mock.json')
+pulse_data = open('/workspaces/mock_data_generate-uing-pythonfaker/vitals/pulse/pulse_mock.json')
+temp_data = open('/workspaces/mock_data_generate-uing-pythonfaker/vitals/temp/temp_mock.json')
 
 
 # Iterating through the json
