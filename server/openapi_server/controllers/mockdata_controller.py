@@ -35,20 +35,23 @@ def mockdata_create_post(mockdata_create_post_request=None):  # noqa: E501
             return "mockdata generator failed", 404
         if type == "patient":
             try:
-                uploadjson = UploadJsonFileToFirestore('set', type,patientId,
+                uploadjson = UploadJsonFileToFirestore('set', type, patientId,
                                                        '/home/deep/Desktop/mock_data_generator-main/vitals/patient/patient_mock.json')
                 uploadjson.upload()
                 return res
             except:
                 return "mockdata generator failed", 404
         res = res[0]["FVNTu8vnH9QMLDH24CPGn7mm2In2"]
+        res[0]['patientId'] = patientId
         collection = db.collection("Patient").document(patientId).collection(type).document().set(res[0])
-        # # return res[0][0]
+        # # return res[0][0].where("patientId", "==", patientId)
+        # print(collection)
 
         return res[0]
 
-    except:
-        return "Something went wrong", 404
+    except Exception as err:
+        # return "Something went wrong", 404
+        return err
 
 
 def mockdata_get_get(vital_type, patient_id):  # noqa: E501
