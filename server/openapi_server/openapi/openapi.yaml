@@ -54,6 +54,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: patientId
+        required: true
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -84,6 +91,14 @@ paths:
       x-openapi-router-controller: openapi_server.controllers.mockdata_controller
 components:
   parameters:
+    patientIdParam:
+      explode: true
+      in: query
+      name: patientId
+      required: true
+      schema:
+        type: string
+      style: form
     idParam:
       explode: true
       in: query
@@ -126,9 +141,9 @@ components:
         vital_type:
           title: vital_type
           type: string
-        count:
-          title: count
-          type: integer
+        patientId:
+          title: patientId
+          type: string
       title: _Mockdata_create_post_request
       type: object
     _Mockdata_create_post_201_response:

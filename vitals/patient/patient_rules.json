@@ -1,0 +1,105 @@
+{
+    "context": {
+        "locale": "en-US"
+    },
+    "paths": [
+        {
+            "path": "$",
+            "generator": "collection",
+            "params": {
+                "sample_file": "patient.json",
+                "count": 3,
+                "paths": [
+                    {
+                        "path": "$.name[0].text",
+                        "generator": "name",
+                        "params": {
+                            "discriminator":"patient"
+                        }
+                    },
+                    {
+                        "path": "$.name[0].given",
+                        "generator": "name",
+                        "params": {
+                            "discriminator":"patient"
+                        }
+                    },
+                    {
+                        "path": "$.name[0].family",
+                        "generator": "name",
+                        "params": {
+                            "discriminator":"patient"
+                        }
+                    },
+                    {
+                        "path": "$.name[0].prefix",
+                        "generator": "name",
+                        "params": {
+                            "discriminator":"patient",
+                            "weight": 0.4
+                        }
+                    },
+                    {
+                        "path": "$.name[0].suffix",
+                        "generator": "name",
+                        "params": {
+                            "discriminator":"patient",
+                            "weight": 0.2
+                        }
+                    },
+                    {
+                        "path": "$.birthDate",
+                        "generator": "date_birth",
+                        "params": {
+                            "minimum_age": 20,
+                            "maximum_age": 85
+                        }
+                    },
+                    {
+                        "path": "$.deceased",
+                        "generator": "false"
+                    },
+                    {
+                        "path": "$.address[0].text",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].line",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].district",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].city",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].state",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].postalCode",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.address[0].country",
+                        "generator": "address"
+                    },
+                    {
+                        "path": "$.multipleBirth",
+                        "generator": "boolean",
+                        "params": {
+                            "weight": 0.05
+                        }
+                    },
+                    {
+                        "path": "$.photo[0].url",
+                        "generator": "blank"
+                    }
+                ]
+            }
+        }
+    ]
+}

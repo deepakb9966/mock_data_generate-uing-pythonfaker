@@ -15,26 +15,26 @@ class MockdataCreatePostRequest(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, vital_type=None, count=None):  # noqa: E501
+    def __init__(self, vital_type=None, patient_id=None):  # noqa: E501
         """MockdataCreatePostRequest - a model defined in OpenAPI
 
         :param vital_type: The vital_type of this MockdataCreatePostRequest.  # noqa: E501
         :type vital_type: str
-        :param count: The count of this MockdataCreatePostRequest.  # noqa: E501
-        :type count: int
+        :param patient_id: The patient_id of this MockdataCreatePostRequest.  # noqa: E501
+        :type patient_id: str
         """
         self.openapi_types = {
             'vital_type': str,
-            'count': int
+            'patient_id': str
         }
 
         self.attribute_map = {
             'vital_type': 'vital_type',
-            'count': 'count'
+            'patient_id': 'patientId'
         }
 
         self._vital_type = vital_type
-        self._count = count
+        self._patient_id = patient_id
 
     @classmethod
     def from_dict(cls, dikt) -> 'MockdataCreatePostRequest':
@@ -69,22 +69,22 @@ class MockdataCreatePostRequest(Model):
         self._vital_type = vital_type
 
     @property
-    def count(self):
-        """Gets the count of this MockdataCreatePostRequest.
+    def patient_id(self):
+        """Gets the patient_id of this MockdataCreatePostRequest.
 
 
-        :return: The count of this MockdataCreatePostRequest.
-        :rtype: int
+        :return: The patient_id of this MockdataCreatePostRequest.
+        :rtype: str
         """
-        return self._count
+        return self._patient_id
 
-    @count.setter
-    def count(self, count):
-        """Sets the count of this MockdataCreatePostRequest.
+    @patient_id.setter
+    def patient_id(self, patient_id):
+        """Sets the patient_id of this MockdataCreatePostRequest.
 
 
-        :param count: The count of this MockdataCreatePostRequest.
-        :type count: int
+        :param patient_id: The patient_id of this MockdataCreatePostRequest.
+        :type patient_id: str
         """
 
-        self._count = count
+        self._patient_id = patient_id
