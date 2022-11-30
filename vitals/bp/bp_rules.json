@@ -9,7 +9,6 @@
       "params": {
         "sample_file": "bp.json",
         "count": 10,
-        "patientId": "FVNTu8vnH9QMLDH24CPGn7mm2In2",
         "paths": [
           {
             "path": "$.sys",

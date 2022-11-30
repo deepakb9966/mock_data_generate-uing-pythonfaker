@@ -12,10 +12,15 @@ Python 3.5.2+
 
 ## Usage
 To run the server, please execute the following from the root directory:
-
+for mac and linux 
 ```
 pip3 install -r requirements.txt
 python3 -m openapi_server
+```
+for windows
+```
+pip3 install -r requirements.txt
+py -m openapi_server
 ```
 
 and open your browser to here:

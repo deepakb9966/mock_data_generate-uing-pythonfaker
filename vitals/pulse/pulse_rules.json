@@ -9,7 +9,6 @@
       "params": {
         "sample_file": "pulse.json",
         "count": 2,
-        "patientId": "FVNTu8vnH9QMLDH24CPGn7mm2In2",
         "paths": [
           {
             "path": "$.valueQuantity.value",
