@@ -13,3 +13,4 @@ firebase_admin
 faker
 waitress
 parse
+jsonpath-ng
